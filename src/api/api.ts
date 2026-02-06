@@ -11,6 +11,11 @@ api.interceptors.request.use(
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
     }
+    
+    // ESTA LÍNEA ES CLAVE PARA NGROK:
+    // Evita que la pantalla de advertencia de ngrok bloquee la petición
+    config.headers['ngrok-skip-browser-warning'] = 'true';
+    
     return config;
   },
   (error) => Promise.reject(error)
