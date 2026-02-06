@@ -1,0 +1,145 @@
+/* ======================================================
+   1. ESTILOS GENERALES
+   ====================================================== */
+* {
+  box-sizing: border-box;
+}
+
+/* Agregamos la clase del botón de cerrar sesión con tus estilos originales */
+.logout-btn {
+  background-color: #c0392b;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  cursor: pointer;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin-top: 10px;
+  background: white;
+  border-radius: 8px;
+  border: 1px solid #eee;
+}
+
+/* ======================================================
+   2. BREAKPOINT PARA MÓVILES (Celulares)
+   ====================================================== */
+@media screen and (max-width: 768px) {
+  
+  /* Contenedor principal del Header */
+  .header-container {
+    padding: 6px 8px !important;
+    gap: 4px !important;
+  }
+
+  /* Título: Permitimos que use 2 líneas para que esté completo */
+  .header-title {
+    font-size: 10px !important;
+    white-space: normal !important; /* Permite salto de línea */
+    overflow: visible !important;
+    text-overflow: clip !important;
+    max-width: none !important;
+    text-align: left;
+    display: block !important;
+  }
+
+  /* BOTÓN DE CERRAR SESIÓN PEQUEÑO */
+  /* Usamos la clase .logout-btn para asegurar que se aplique */
+  .header-actions .logout-btn, 
+  .header-actions button {
+    width: auto !important;         /* No permite que sea ancho */
+    min-width: 65px !important;     /* Ancho mínimo suficiente */
+    padding: 4px 8px !important;    /* Relleno mínimo */
+    font-size: 9px !important;      /* Letra pequeña y estética */
+    height: 28px !important;        /* Altura compacta */
+    margin: 0 !important;
+    white-space: nowrap;
+    border-radius: 6px !important;
+    line-height: 1 !important;
+  }
+
+  /* Logo y Menú Hamburguesa */
+  .header-container img {
+    height: 22px !important;
+  }
+
+  .mobile-menu-btn {
+    display: flex !important;
+    width: 32px !important;
+    height: 32px !important;
+  }
+
+  /* --- Sidebar Lateral --- */
+  .sidebar-wrapper {
+    position: fixed !important;
+    top: 0;
+    left: -250px !important;
+    width: 230px !important;
+    height: 100vh !important;
+    z-index: 2000;
+    transition: left 0.3s ease-in-out !important;
+    display: block !important;
+  }
+
+  .sidebar-wrapper.open {
+    left: 0 !important;
+  }
+
+  .sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 1500;
+  }
+
+  /* --- Ajuste de Formularios y Contenedores --- */
+  main {
+    padding: 10px !important; /* Ganamos espacio en los bordes */
+  }
+
+  div[style*="width: 380px"], 
+  div[style*="width:380px"],
+  div[style*="maxWidth: 500px"],
+  div[style*="maxWidth: 700px"] {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto 15px auto !important;
+    padding: 15px !important;
+  }
+
+  /* Inputs y botones del contenido (Caja, Usuarios, etc) */
+  /* Agregamos :not(.logout-btn) para que el botón de salir no se haga gigante */
+  main input, main select, main button:not(.mobile-menu-btn):not(.logout-btn) {
+    width: 100% !important;
+    font-size: 16px !important;
+    padding: 12px !important;
+  }
+
+  /* Grillas a una columna */
+  div[style*="display: grid"] {
+    grid-template-columns: 1fr !important;
+    gap: 15px !important;
+  }
+}
+
+/* ======================================================
+   3. ESTILOS DE IMPRESIÓN
+   ====================================================== */
+@media print {
+  body { margin: 0; background: white; }
+  body * { visibility: hidden; }
+  .recibo-print, .recibo-print * { visibility: visible; }
+  .recibo-print {
+    position: absolute; top: 0; left: 0;
+    width: 100%; max-width: 100%; padding: 20px;
+  }
+  button, .mobile-menu-btn, .logout-btn { display: none !important; }
+}

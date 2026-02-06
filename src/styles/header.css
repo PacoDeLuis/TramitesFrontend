@@ -1,0 +1,34 @@
+.app-header {
+  background: white;
+  padding: 12px 20px;
+  border-radius: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.menu-btn {
+  display: none;
+  background: #1f7a4f;
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* Mostrar solo en móvil */
+
+@media (max-width: 768px) {
+  .menu-btn {
+    display: block;
+  }
+}

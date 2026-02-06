@@ -1,0 +1,37 @@
+.layout {
+  display: flex;
+  min-height: 100vh;
+  background: #f5f6f7;
+}
+
+.layout-content {
+  flex: 1;
+  padding: 30px;
+}
+
+/* Botón hamburguesa */
+.menu-btn {
+  display: none;
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  z-index: 1100;
+  font-size: 24px;
+  background: #1f7a4f;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Móvil */
+@media (max-width: 768px) {
+  .menu-btn {
+    display: block;
+  }
+
+  .layout-content {
+    padding: 15px;
+  }
+}
